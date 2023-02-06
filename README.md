@@ -1,2 +1,0 @@
-# BinarAcademy-BEJ
- 
