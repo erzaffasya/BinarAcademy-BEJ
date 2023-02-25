@@ -14,10 +14,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       stok: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       harga: {
-        type: Sequelize.STRING
+        type: Sequelize.NUMERIC
       },
       createdAt: {
         allowNull: false,

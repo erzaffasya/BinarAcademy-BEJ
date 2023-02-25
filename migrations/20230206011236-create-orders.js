@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       item_id: {
         type: Sequelize.INTEGER
@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       total_harga: {
-        type: Sequelize.STRING
+        type: Sequelize.NUMERIC
       },
       createdAt: {
         allowNull: false,

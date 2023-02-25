@@ -14,11 +14,11 @@ class ItemController {
         return getItem
     }
 
-    async search(name) {
+    async search(nama_barang) {
         const getItem = await Item.findAll({
             where: {
                 name: {
-                    [Op.like]: `%${name}%`
+                    [Op.like]: `%${nama_barang}%`
                 }
             }
         })
@@ -29,7 +29,7 @@ class ItemController {
     async insertData(body) {
 
         const create = await Item.create({
-            nama_barang: body.name,
+            nama_barang: body.nama_barang,
             stok: body.stok,
             harga: body.harga,
         })
@@ -40,7 +40,7 @@ class ItemController {
     async update(id, body) {
 
         Item.update({
-            nama_barang: body.name,
+            nama_barang: body.nama_barang,
             stok: body.stok,
             harga: body.harga,
         }, {
