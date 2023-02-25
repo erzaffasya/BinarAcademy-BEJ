@@ -1,12 +1,12 @@
 const router = require('express').Router()
-const item = require('../controller/item.controller')
+const user = require('../controller/user.controller')
 const { body, validationResult } = require('express-validator')
 
 // in this file we separate router to from the main /user address to smaller one such as
-const itemClass = new item()
+const userClass = new user()
 router.get('/', (req, res, next) => {
 
-    itemClass.getAllItem()
+    userClass.getAllUser()
         .then(data => {
             console.log
             return res.status(200).json({
@@ -23,7 +23,7 @@ router.get('/', (req, res, next) => {
 })
 router.get('/search', (req, res, next) => {
     console.log(req.query)
-    itemClass.search(req.query.name)
+    userClass.search(req.query.full_name)
         .then(data => {
             return res.status(200).json({
                 data
@@ -38,7 +38,7 @@ router.get('/search', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-    itemClass.getById(req.params.id)
+    userClass.getById(req.params.id)
         .then(data => {
             return res.status(200).json({
                 data
@@ -54,7 +54,7 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     // return req.body;
-    itemClass.insertData(req.body)
+    userClass.insertData(req.body)
         .then(data => {
             return res.status(200).json({
                 data
@@ -69,7 +69,7 @@ router.post('/', (req, res, next) => {
 })
 
 router.put('/:id', (req, res, next) => {
-    itemClass.update(req.params.id, req.body)
+    userClass.update(req.params.id, req.body)
         .then(data => {
             return res.status(200).json({
                 data
@@ -84,7 +84,7 @@ router.put('/:id', (req, res, next) => {
 })
 
 router.delete('/:id', (req, res, next) => {
-    itemClass.deleteData(req.params.id)
+    userClass.deleteData(req.params.id)
         .then(data => {
             return res.status(200).json({
                 data

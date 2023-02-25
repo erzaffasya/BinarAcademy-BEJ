@@ -2,14 +2,14 @@ const express = require('express')
 require('dotenv').config()
 const app = express()
 const port = process.env.PORT || 3000
-const itemsRoute = require('./route/item.route')
+const usersRoute = require('./route/user.route')
 
 app.use(express.json())
 app.use(express.urlencoded({
     extended: true
 }))
 
-app.use('/items', itemsRoute)
+app.use('/user', usersRoute)
 
 // testing connection and connect for sequelize here
 const db = require("./models");

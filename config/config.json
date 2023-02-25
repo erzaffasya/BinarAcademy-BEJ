@@ -2,7 +2,7 @@
   {
     "username": "postgres",
     "password": "2105",
-    "database": "binar",
+    "database": "tugas_mingguan_binar",
     "host": "localhost",
     "port":"5432",
     "dialect": "postgres",

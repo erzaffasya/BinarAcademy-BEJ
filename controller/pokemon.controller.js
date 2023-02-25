@@ -1,21 +1,21 @@
 const db = require('../models')
-const Order = db.item;
+const Pokemon = db.pokemon;
 const Op = require("sequelize");
 
-class OrderController {
-    async getAllOrder() {
-        const getOrder = await Order.findAll()
-        return getOrder
+class PokemonController {
+    async getAllPokemon() {
+        const getPokemon = await Pokemon.findAll()
+        return getPokemon
     }
 
     async getById(id) {
-        const getOrder = await Order.findByPk(id)
+        const getPokemon = await Pokemon.findByPk(id)
 
-        return getOrder
+        return getPokemon
     }
 
     async search(nama_barang) {
-        const getOrder = await Order.findAll({
+        const getPokemon = await Pokemon.findAll({
             where: {
                 nama_barang: {
                     [Op.like]: `%${nama_barang}%`
@@ -23,14 +23,14 @@ class OrderController {
             }
         })
 
-        return getOrder
+        return getPokemon
     }
 
     async insertData(body) {
 
-        const create = await Order.create({
+        const create = await Pokemon.create({
             user_id: body.user_id,
-            item_id: body.item_id,
+            pokemon_id: body.pokemon_id,
             status: body.status,
             total_harga: body.total_harga,
         })
@@ -40,9 +40,9 @@ class OrderController {
 
     async update(id, body) {
 
-        Order.update({
+        Pokemon.update({
             user_id: body.user_id,
-            item_id: body.item_id,
+            pokemon_id: body.pokemon_id,
             status: body.status,
             total_harga: body.total_harga,
         }, {
@@ -59,7 +59,7 @@ class OrderController {
 
     async deleteData(id) {
 
-        const deleteOne = delete await Order.destroy({
+        const deleteOne = delete await Pokemon.destroy({
             where: {
                 id
             }
@@ -69,4 +69,4 @@ class OrderController {
     }
 }
 
-module.exports = OrderController
+module.exports = PokemonController
